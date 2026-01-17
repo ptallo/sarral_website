@@ -37,6 +37,7 @@ env:
   PROJECT_ID: 'dev-webdev-tallopt' # TODO: update to your Google Cloud project ID
   REGION: 'us-central1' # TODO: update to your region
   SERVICE: 'sarral-website' # TODO: update to your service name
+  WORKLOAD_IDENTITY_PROVIDER: 'https://iam.googleapis.com/projects/252722430056/locations/global/workloadIdentityPools/github/providers/sarral-website-oidc-provider'
 
 jobs:
   deploy:
@@ -55,8 +56,9 @@ jobs:
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@f112390a2df9932162083945e46d439060d66ec2' # google-github-actions/auth@v2
         with:
-          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
           token_format: access_token
+          project_id: '${{ env.PROJECT_ID }}'
+          workload_identity_provider: '${{ env.WORKLOAD_IDENTITY_PROVIDER }}'
 
       - name: 'Docker Auth'
         uses: 'docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567' # docker/login-action@v3
