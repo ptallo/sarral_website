@@ -37,6 +37,7 @@ env:
   PROJECT_ID: 'dev-webdev-tallopt'
   REGION: 'us-central1'
   SERVICE: 'sarral-website'
+  WORKLOAD_IDENTITY_PROVIDER: 'projects/252722430056/locations/global/workloadIdentityPools/github/providers/sarral-website-oidc-provider'
 
 jobs:
   deploy:
@@ -56,8 +57,7 @@ jobs:
         uses: 'google-github-actions/auth@f112390a2df9932162083945e46d439060d66ec2' # google-github-actions/auth@v2
         with:
           token_format: access_token
-          project_id: '${{ env.PROJECT_ID }}'
-          workload_identity_provider: '${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}' # Format projects/{project_id}/locations/global/workloadIdentityPools/{pool_name}/providers/{provider_name}
+          workload_identity_provider: '${{ env.WORKLOAD_IDENTITY_PROVIDER }}' # Format projects/{project_id}/locations/global/workloadIdentityPools/{pool_name}/providers/{provider_name}
           service_account: '${{ secrets.SERVICE_ACCOUNT }}' # Format {service_account_name}@{project_name}t.iam.gserviceaccount.com
 
       - name: 'Docker Auth'
