@@ -37,7 +37,7 @@ env:
   PROJECT_ID: 'dev-webdev-tallopt' # TODO: update to your Google Cloud project ID
   REGION: 'us-central1' # TODO: update to your region
   SERVICE: 'sarral-website' # TODO: update to your service name
-  WORKLOAD_IDENTITY_PROVIDER: 'https://iam.googleapis.com/projects/252722430056/locations/global/workloadIdentityPools/github/providers/sarral-website-oidc-provider'
+  WORKLOAD_IDENTITY_PROVIDER: 'projects/252722430056/locations/global/workloadIdentityPools/github/providers/sarral-website-oidc-provider'
 
 jobs:
   deploy:
