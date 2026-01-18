@@ -32,3 +32,7 @@ export default {
 # Setting up DNS Records
 
 In order to setup the DNS records for this project I followed [this](https://cloud.google.com/run/docs/mapping-custom-domains#run) guide in google's docs
+
+# Setting up Workload Identity Federation and Related Service Account
+
+In order to setup the WIF and SA I followed the instructions in [this repository](https://github.com/google-github-actions/auth/tree/main)
